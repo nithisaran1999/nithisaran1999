@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3 Sept 2020</title>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+      $(function () {
+        let data = [22, 33, 44];
+        $.each(data, function (i, value) {
+          $("#MyM").append(i + "<br>");
+        });
+
+        $("#b1").click(function () {
+          let text = $("#in1").val();
+          $("#MyM2").prepend("<li>" + text + "</li>");
+        });
+
+        $("#b2").click(function () {
+          $("li:last-child").remove();
+        });
+
+        $("#b3").click(function () {
+          $("#MyM2").empty();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>ทดสอบ Jquery $.each()</h1>
+    <h1>this</h1>
+    <input type="text" name="in1" id="in1" />
+    <button id="b1">GO!!</button>
+    <button id="b2">Remove!!</button>
+    <button id="b3">Empty!!</button>
+    <p id="MyM">My Message Dog<br /></p>
+    <ol id="MyM2"></ol>
+  </body>
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+
+
+  <title>สมัครสมาชิก</title>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="../../css/form.css">
+</head>
+
+<body class="bg-light">
+
+  <div class="container">
+    <div class="py-5 text-center">
+
+      <h2>สมัครสมาชิก</h2>
+      <p class="lead"></p>
+    </div>
+    <div class="row">
+      <div class="col-md-4 order-md-2 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Result</span>
+
+        </h4>
+        <ul class="list-group mb-3" name="show">
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">ชื่อผู้ใช้</h6>
+              <small class="text-muted" name="showUserName"></small>
+            </div>
+
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">ชื่อ - นามสกุล</h6>
+              <small class="text-muted" id="showFistName"></small>
+            </div>
+
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">E-Mail</h6>
+              <small class="text-muted" id="showMail"></small>
+            </div>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">สถานะ</h6>
+              <small class="text-muted" id="showAddress"></small>
+            </div>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">อุปกรณ์ที่ต้องการใช้งาน</h6>
+              <small class="text-muted" id="showCheck"></small>
+            </div>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">ราคา</h6>
+              <small class="text-muted">
+                <div id="showPrice"></div>
+              </small>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-md-8 order-md-1">
+        <!-- form user info -->
+        <div class="card card-outline-secondary">
+          <div class="card-header">
+            <h3 class="mb-0">ข้อมูลส่วนตัว</h3>
+          </div>
+          <div class="card-body">
+            <form class="form" role="form" autocomplete="off" action="./homeWork1.html" method="POST" name="form">
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">ชื่อ</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value="" name="firstName" id="firstName">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">นามสกุล</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value="" name="lastName" id="lastName">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="email" value="" name="mail">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value="" name="userName">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="password" value="" name=password>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">สถานะ</label>
+                <div class="col-lg-9">
+                  <select id="state" class="form-control" size="0">
+                    <option value="student">นักศึกษา</option>
+                    <option value="aj">อาจารย์</option>
+                    <option value="normal">บุคคลภายนอก</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">อุปกรณ์ที่ต้องการใช้งาน</label>
+                <div class="col-lg-9">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="check" value="ลู่วิ่ง" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      ลู่วิ่ง
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="check" value="ดัมเบล" id="defaultCheck2">
+                    <label class="form-check-label" for="defaultCheck2">
+                      ดัมเบล
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="check" value="ยางยืด" id="defaultCheck3">
+                    <label class="form-check-label" for="defaultCheck3">
+                      ยางยืด
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label"></label>
+                <div class="col-lg-9">
+                  <input type="reset" class="btn btn-secondary" value="Cancel">
+                  <input type="button" onclick="getData3(this.form)" class="btn btn-primary" value="Submit">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- /form user info -->
+      </div>
+    </div>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">&copy; 2017-2018 Company Name</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+      </ul>
+    </footer>
+  </div>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"><\/script>')</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.7/holder.min.js"></script>
+  <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+  </script>
+  <script>
+
+    function getData3(form) {
+
+      let firstName = form.firstName.value
+      let lastName = form.lastName.value
+      let mail = form.mail.value
+      let userName = form.userName.value
+      let password = form.password.value
+      let state = form.state.value
+      let price = 0
+      let msg = ""
+      var checkboxes = document.getElementsByName('check');
+      for (var checkbox of checkboxes) {
+        
+        if (checkbox.checked)
+        price = price + 100
+          msg += checkbox.value+" "
+          
+      }
+      //document.getElementById("showFirstName").innerHTML = firstName
+      document.getElementById("showCheck").innerHTML = msg
+      document.getElementById("showPrice").innerHTML = price
+      //document.getElementById("showUserName").innerHTML= userName
+    }
+
+  </script>
+</body>
+
+</html>

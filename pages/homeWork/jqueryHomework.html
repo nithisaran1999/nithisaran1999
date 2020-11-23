@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jquery Sub NetMask Calculator</title>
+  <script src="./../../js/jquery.min.js"></script>
+  <style>
+    #calcutor {
+      float: initial;
+      position: relative;
+      width: 60%;
+      float: left;
+    }
+
+    table {
+      margin: 5px;
+      padding: 5px;
+      float: right;
+      border: solid black 2px;
+      width: 50%;
+    }
+
+    td {
+      border: solid black 1.5px;
+    }
+
+    .sub {
+      display: inline;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="calcutor">
+    <fieldset>
+      <legend>
+        <h2>Sub NetMask Calculator By Nithisaran Suksom</h2>
+      </legend>
+      <form action="./jqueryHomework.html" method="get" name="form">
+        <input type="number" name="ip1" id="ip1" min="0" max="255" required />.
+        <input type="number" name="ip2" id="ip2" min="0" max="255" required />.
+        <input type="number" name="ip3" id="ip3" min="0" max="255" required />.
+        <input type="number" name="ip4" id="ip4" min="0" max="255" required />
+        /
+        <input type="number" name="subnet" id="subnet" min="1" max="32" required />
+        <input type="button" value="Submit" name="Submit" id="Submit" />
+      </form>
+    </fieldset>
+  </div>
+
+  <table style="width: 39%; position: relative; float: left;">
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2<sup>0</sup></td>
+      <td>2<sup>1</sup></td>
+      <td>2<sup>2</sup></td>
+      <td>2<sup>3</sup></td>
+      <td>2<sup>4</sup></td>
+      <td>2<sup>5</sup></td>
+      <td>2<sup>6</sup></td>
+      <td>2<sup>7</sup></td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>64</td>
+      <td>32</td>
+      <td>16</td>
+      <td>8</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>192</td>
+      <td>224</td>
+      <td>240</td>
+      <td>248</td>
+      <td>252</td>
+      <td>254</td>
+      <td>255</td>
+    </tr>
+  </table>
+
+  <fieldset id="result" hidden>
+    <legend>Result</legend>
+    <div>
+      <h2 id="ans"></h2>
+    </div>
+  </fieldset>
+</body>
+
+</html>
+<script>
+  function getNetMask2(sub) {
+    if (sub <= 8) {
+      bit = 1;
+    } else if (sub >= 9) {
+      bit = 2;
+    }
+  }
+
+  function checkbinary(bina) {
+    return bina.length;
+  }
+
+  function fillzero(ip) {
+    if (ip.length != 8) {
+      var loop = 8 - ip.length;
+      for (let i = 0; i < loop; i++) {
+        var zero = "0";
+        ip = zero + ip;
+      }
+    } else {
+      console.log("Good");
+    }
+    return ip;
+  }
+
+  function dec2bin(dec) {
+    if (dec < 0) {
+      dec = 0xffffffff + dec + 1;
+    }
+    return parseInt(dec, 10).toString(2);
+  }
+
+  function getNetMask() {
+    var sub = $("#subnet").val();
+    return sub;
+  }
+
+  $(function () {
+    $("#Submit").click(function () {
+      $("#result").fadeIn(1000);
+      var ip1 = dec2bin($("#ip1").val());
+      ip1 = fillzero(ip1);
+      var ip2 = dec2bin($("#ip2").val());
+      ip2 = fillzero(ip2);
+      var ip3 = dec2bin($("#ip3").val());
+      ip3 = fillzero(ip3);
+      var ip4 = dec2bin($("#ip4").val());
+      ip4 = fillzero(ip4);
+      var allip = ip1 + ip2 + ip3 + ip4;
+      var allip_le = allip.length;
+      $("#ans").html(`
+    <div id="sm1" class="sub">${ip1[0]}</div>
+    <div id="sm2" class="sub">${ip1[1]}</div>
+    <div id="sm3" class="sub">${ip1[2]}</div>
+    <div id="sm4" class="sub">${ip1[3]}</div>
+    <div id="sm5" class="sub">${ip1[4]}</div>
+    <div id="sm6" class="sub">${ip1[5]}</div>
+    <div id="sm7" class="sub">${ip1[6]}</div>
+    <div id="sm8" class="sub">${ip1[7]}</div>
+    <div id="sm" class="sub">.</div>
+    <div id="sm9" class="sub">${ip2[0]}</div>
+    <div id="sm10" class="sub">${ip2[1]}</div>
+    <div id="sm11" class="sub">${ip2[2]}</div>
+    <div id="sm12" class="sub">${ip2[3]}</div>
+    <div id="sm13" class="sub">${ip2[4]}</div>
+    <div id="sm14" class="sub">${ip2[5]}</div>
+    <div id="sm15" class="sub">${ip2[6]}</div>
+    <div id="sm16" class="sub">${ip2[7]}</div>
+    <div id="sm" class="sub">.</div>
+    <div id="sm17" class="sub">${ip3[0]}</div>
+    <div id="sm18" class="sub">${ip3[1]}</div>
+    <div id="sm19" class="sub">${ip3[2]}</div>
+    <div id="sm20" class="sub">${ip3[3]}</div>
+    <div id="sm21" class="sub">${ip3[4]}</div>
+    <div id="sm22" class="sub">${ip3[5]}</div>
+    <div id="sm23" class="sub">${ip3[6]}</div>
+    <div id="sm24" class="sub">${ip3[7]}</div>
+    <div id="sm" class="sub">.</div>
+    <div id="sm25" class="sub">${ip4[0]}</div>
+    <div id="sm26" class="sub">${ip4[1]}</div>
+    <div id="sm27" class="sub">${ip4[2]}</div>
+    <div id="sm28" class="sub">${ip4[3]}</div>
+    <div id="sm29" class="sub">${ip4[4]}</div>
+    <div id="sm30" class="sub">${ip4[5]}</div>
+    <div id="sm31" class="sub">${ip4[6]}</div>
+    <div id="sm32" class="sub">${ip4[7]}</div>
+            
+            `);
+      var subNet = getNetMask();
+      $("#sm" + subNet).css("color", "red");
+    });
+
+    $("#ip1").change(function () {
+      var max = parseInt($(this).attr("max"));
+      var min = parseInt($(this).attr("min"));
+      if ($(this).val() > max) {
+        $(this).val(max);
+      } else if ($(this).val() < min) {
+        $(this).val(min);
+      }
+    });
+    $("#ip2").change(function () {
+      var max = parseInt($(this).attr("max"));
+      var min = parseInt($(this).attr("min"));
+      if ($(this).val() > max) {
+        $(this).val(max);
+      } else if ($(this).val() < min) {
+        $(this).val(min);
+      }
+    });
+    $("#ip3").change(function () {
+      var max = parseInt($(this).attr("max"));
+      var min = parseInt($(this).attr("min"));
+      if ($(this).val() > max) {
+        $(this).val(max);
+      } else if ($(this).val() < min) {
+        $(this).val(min);
+      }
+    });
+    $("#ip4").change(function () {
+      var max = parseInt($(this).attr("max"));
+      var min = parseInt($(this).attr("min"));
+      if ($(this).val() > max) {
+        $(this).val(max);
+      } else if ($(this).val() < min) {
+        $(this).val(min);
+      }
+    });
+    $("#subnet").change(function () {
+      var max = parseInt($(this).attr("max"));
+      var min = parseInt($(this).attr("min"));
+      if ($(this).val() > max) {
+        $(this).val(max);
+      } else if ($(this).val() < min) {
+        $(this).val(min);
+      }
+    });
+  });
+</script>

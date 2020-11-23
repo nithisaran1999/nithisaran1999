@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+  </head>
+  <script>
+    $(function () {
+      $("#b1").click(function () {
+        $("#message").load(".././ajax/myText.txt", function () {
+          $("#message").fadeIn("slow");
+        });
+      });
+    });
+  </script>
+  <body>
+    <h2 id="message" hidden></h2>
+
+    <br /><button id="b1">Load</button>
+  </body>
+</html>

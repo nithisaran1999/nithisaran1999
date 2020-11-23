@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        function getData(form) {
+            let a = Number.parseInt(form.a.value);
+            let b = Number.parseInt(form.b.value);
+            document.getElementById("show").innerHTML = a+b
+        }
+    </script>
+    <form action="./testForm.html" method="get" name="myForm">
+        <input type="number" name="a" id="a">
+        <input type="number" name="b" id="b">
+        <input type="button" value="submit" onclick="getData(this.form)">
+    
+    </form>
+    <div id="show">
+        Show Zone
+    </div>
+</body>
+</html>

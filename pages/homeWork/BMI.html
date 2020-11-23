@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="../../js/BMI.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <title>BMI Calculator</title>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar is-black">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox"
+                    width="112" height="28" />
+            </a>
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="https://bulma.io/"> Home </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
+                        Menu
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                            Overview
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
+                            Modifiers
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+                            Columns
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
+                            Layout
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
+                            Form
+                        </a>
+                        <hr class="navbar-divider" />
+                        <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
+                            Elements
+                        </a>
+                        <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
+                            Components
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field is-grouped">
+                        <p class="control"></p>
+                        <p class="control">
+                            <a class="button is-primary"
+                                href="https://github.com/jgthms/bulma/releases/download/0.9.0/bulma-0.9.0.zip">
+                                <span class="icon">
+                                    <i class="fas fa-download"></i>
+                                </span>
+                                <span>Download</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <br />
+
+    <!-- Container Start -->
+
+    <div class="container">
+        <!-- Column Start-->
+
+        <div class="columns is-mobile">
+            <div class="column is-6 is-offset-1">
+                <!-- Panel Start-->
+
+                <nav class="panel is-warning">
+                    <p class="panel-heading">BMI Calculator</p>
+
+                    <!-- Form Start-->
+
+                    <div class="box">
+                        <form>
+                            <div class="field has-addons">
+                                <label class="field-label">Weight</label>
+                                <p class="control is-expanded has-icons-left">
+                                    <input class="input" type="text" placeholder="Weight" name="weight" id="weight"
+                                        required>
+                                </p>
+                                <p class="control is-expanded has-icons-left">
+                                    <span class="select">
+                                        <select id="weight_type">
+                                            <option value="" selected>-- Select --</option>
+                                            <option value="KG">KG</option>
+                                            <option value="POUNDS">POUNDS</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div class="field has-addons">
+                                <label class="field-label">Height</label>
+                                <p class="control is-expanded has-icons-left">
+                                    <input class="input" type="text" placeholder="Height" name="height" id="height"
+                                        required>
+                                </p>
+                                <p class="control is-expanded has-icons-left">
+                                    <span class="select">
+                                        <select id="height_type">
+                                            <option value="" selected>-- Select --</option>
+                                            <option>CM</option>
+                                            <option>MM</option>
+                                            <option>M</option>
+                                            <option>INCH</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="field has-addons ">
+                            <div class="control is-expanded has-icons-left ">
+                                <label class="radio">
+                                  <input type="radio" name="sex" id="sex" value="man" checked>
+                                  Man
+                                </label>
+                                <label class="radio">
+                                  <input type="radio" name="sex" id="sex" value="woman">
+                                  Woman
+                                </label>
+                              </div>
+                            </div>
+
+                              <div class="control is-expanded has-icons-left">
+                                <input class="button is-success" value="Submit" id="submit"></input>
+                            </div>
+                    </div>
+
+
+                    </form>
+                    <!-- Form End-->
+
+                </nav>
+                <!-- Panel End-->
+            </div>
+
+            <!-- Result Section Start -->
+            <div class="column is-4" id="result_panel">
+
+                <nav class="panel is-info">
+                    <p class="panel-heading">Result</p>
+
+                    <!-- Result Start-->
+
+                    <div class="box" id="result" hidden>
+
+                    </div>
+
+
+
+                    <!-- Result End-->
+
+                </nav>
+
+            </div>
+            <!-- Result Section End  -->
+        </div>
+
+        <!-- Column End-->
+    </div>
+
+    <!-- Container End -->
+
+    <!-- Modal Secion Start -->
+    <script>
+
+    </script>
+    <div class="modal" id="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Warning</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <h2>Please Select Option!!</h2>
+
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-danger" id="cancle">Cancel</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal Secion End -->
+</body>
+
+<script>
+
+    $(function () {
+        $("#result_panel").hide();
+
+        $("#submit").click(function () {
+            let weight = $("#weight").val();
+            let height = $("#height").val();
+            var weight_type = $("#weight_type option:selected").val();
+            var height_type = $("#height_type option:selected").val();
+            if (weight_type == "" || height_type == "") {
+                $("#modal").addClass(" is-active");
+            } else {
+                if (weight_type == "POUNDS") {
+                    weight = weight * 0.45;
+                } else {
+                    weight = weight;
+                }
+
+                if (height_type == "CM") {
+                    height = height / 100;
+                } else if (height_type == "M") {
+                    height = height;
+                } else if (height_type == "MM") {
+                    height = height / 1000
+                } else {
+                    height = height * 0.025
+                }
+
+                var bmi = weight / (height ** 2);
+                var sex = $("#sex:checked").val();
+                if (sex == "man") {
+                    if (bmi < 19) {
+                    var msg_bmi = "น้ำหนักน้อย";
+                    console.log(msg_bmi);
+                    console.log(sex);
+                } else if (bmi < 24.9) {
+                    var msg_bmi = "น้ำหนักปกติ";
+                    console.log(msg_bmi);
+                    console.log(sex);
+                } else if (bmi < 29.9) {
+                    var msg_bmi = "น้ำหนักปกติเกิน";
+                    console.log(msg_bmi);
+                    console.log(sex);
+                } else if (bmi > 30) {
+                    var msg_bmi = "อ้วนมาก";
+                    console.log(msg_bmi);
+                    console.log(sex);
+                }
+                } else {
+                    if (bmi < 18) {
+                    var msg_bmi = "น้ำหนักน้อย";
+                    console.log(msg_bmi);
+                    console.log(sex);
+                } else if (bmi < 23.9) {
+                    var msg_bmi = "น้ำหนักปกติ";
+                    console.log(msg_bmi);
+                    console.log(sex);
+                } else if (bmi < 29.9) {
+                    var msg_bmi = "น้ำหนักปกติเกิน";
+                    console.log(msg_bmi);
+                    console.log(sex);
+                } else if (bmi < 30) {
+                    var msg_bmi = "อ้วนมาก";
+                    console.log(msg_bmi);
+                    console.log(sex);
+                }
+                }
+
+
+                let msg = `
+            <h1>
+            Weight = ${weight} <br>
+            Height = ${height} <br>
+            Gender = ${sex} <br>
+            BMI = ${bmi.toFixed(2)} <br>
+            ระดับ = ${msg_bmi} <br>
+            
+
+            </h1>
+            `
+                $("#result_panel").fadeIn("slow");
+                $("#result").html(msg).fadeIn("slow");
+
+            }
+
+
+            console.log(bmi);
+            console.log(weight);
+            console.log(height);
+
+        })
+
+        $("#cancle").click(function () {
+            $("#modal").removeClass(" is-active");
+        })
+    })
+
+</script>
+
+</html>

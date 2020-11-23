@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./../js/jquery.min.js"></script>
+    <script src="./../css/jquery-ui.min.css"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1 id="Myh">
+      Moto Dog
+    </h1>
+    <button id="b1">Test</button>
+    <button id="b2">Test2</button>
+    <br />
+    <br />
+    <form action="" id="myForm">
+      <input type="number" name="" id="num1" />
+      <input type="number" name="" id="num2" />
+    </form>
+    <div id="ans"></div>
+    <div id="ans2"></div>
+    <br />
+    <form action="" id="myForm2">
+      <input type="number" name="" id="num3" /> KG <br />
+      <input type="number" name="" id="num4" /> CM
+    </form>
+    <div id="bmi"></div>
+  </body>
+</html>
+<script>
+  $(function () {
+    $("#b1").click(function () {
+      $("#Myh").text("DOG DOG DOG");
+    });
+
+    $("#b2").mouseover(function () {
+      $("#Myh").text("CAT CAT CAT");
+    });
+
+    $("#myForm").change(function () {
+      var num1 = parseInt($("#num1").val());
+      var msg = "";
+      if (isNaN(num1) == false) {
+        for (let i = 0; i < 13; i++) {
+          msg += `${i} * ${num1} = ${i * num1} <br>`;
+          $("#ans2").html(msg);
+        }
+      } else {
+        $("#ans2").text("");
+      }
+    });
+
+    $("#myForm2").change(function () {
+      var num3 = Number.parseFloat($("#num3").val()); //KG
+      var num4 = Number.parseFloat($("#num4").val()); //CM
+      num4 = num4 / 100; //M
+
+      if (isNaN(num3) == false && isNaN(num4) == false) {
+        console.log(num3);
+        console.log(num4);
+        var bmi = num3 / num4 ** 2;
+        bmi = bmi.toFixed(2);
+        console.log(bmi);
+        if (bmi < 18.5) {
+          var msg_bmi = "น้ำหนักน้อย";
+          console.log(msg_bmi);
+        } else if (bmi < 22.9) {
+          var msg_bmi = "น้ำหนักปกติ";
+          console.log(msg_bmi);
+        } else if (bmi < 24.9) {
+          var msg_bmi = "น้ำหนักปกติเกิน";
+          console.log(msg_bmi);
+        } else if (bmi < 29.9) {
+          var msg_bmi = "โรคอ้วน";
+          console.log(msg_bmi);
+        } else if (bmi > 30) {
+          var msg_bmi = "อ้วนมาก";
+          console.log(msg_bmi);
+        }
+      } else {
+      }
+      $("#bmi").html(`
+        Height = ${num4} M <br>
+        Height = ${num3} CM <br>
+        Your BMI = ${bmi} <br>
+        State = ${msg_bmi} <br>
+        `);
+    });
+  });
+</script>

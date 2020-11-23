@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/custom.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+    <title>My Form</title>
+    <style>
+        .table1{
+            position: relative;
+            width: 45%;
+
+            float: left;
+            overflow: auto;
+        }
+        .table2{
+            position: relative;
+            width: 45%;
+            float: right;
+            overflow: auto;
+        }
+        
+    </style>
+</head>
+<body>
+        <div class="table1">
+            <form action="myForm.html" method="get" name="regis">
+
+                <fieldset style="width: 50%;">
+                    <legend>Moto Dog</legend>
+                    <table>
+                        <input type="hidden" name="code" id="code"><br>
+                        <tr>
+                            <td><label for="id">ID</label></td>
+                            <td><input type="text" name="ids" id="id"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label for="name">1st Name</label></td>
+                            <td><input type="text" name="name" id="name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="lname">Last Name</label></td>
+                            <td><input type="text" name="lname" id="lname"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="user">User</label></td>
+                            <td><input type="text" name="user" id="user"><br></td>          
+                        </tr>
+                        <tr>           
+                            <td><label for="pass">Pass</label></td>
+                            <td><input type="password" name="pass" id="pass"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="color">Color</label></td>
+                            <td><input type="color" name="color" id="color"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="date">Date</label></td>
+                            <td><input type="date" name="date" id="date"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="file">File</label></td>
+                            <td><input type="file" name="file" id="file"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">เพศ</label></td>
+                            
+                            <td><input type="radio" name="sex" id="sex" value="male"> ชาย </td>
+                        </tr>
+                        <tr>          
+                            <td></td>     
+                             <td><input type="radio" name="sex" id="sex" value="female"> หญิง </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="radio" name="sex" id="sex" value="" checked> ไม่ระบุ </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="">สถาณะ</label> 
+                            </td>
+                            <td><input type="radio" name="state" id="state" value="single"> โสด</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="radio" name="state" id="state" value="broke"> หย่า</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="radio" name="state" id="state" value="nobody" checked> ไม่มีคนคบ</td>
+                        </tr>
+                        <tr>
+                            <td><label for="">กิจกรรมที่ชอบ</label></td>
+                            <td><input type="checkbox" name="hobby" id="hobby" value="sleep"> นอน</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="checkbox" name="hobby" id="hobby" value="readficion"> อ่านนิยาย<br></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="checkbox" name="hobby" id="hobby" value="game"> เล่นเกม<br></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="checkbox" name="hobby" id="hobby" value="girl"> จีบสาว</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="checkbox" name="hobby" id="hobby" value="movie"> ดูหนัง</td>
+                        </tr>
+                        <tr>
+                            <td><label for="animal">สัตวเลี้ยง</label></td>
+                            <td>                <select name="animal">
+                                <option value="" selected>------------ ไม่เลี้ยง --------------</option>
+                                <option value="cat">แมว</option>
+                                <option value="dog">หมา</option>
+                                <option value="bee">ผึ่ง</option>
+                                <option value="hose">ม้า</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label for="about">เกี่ยวกับตัวเอง</label>
+                                </td>
+                            <td><textarea name="about" id="about" cols="30" rows="10" maxlength="256">
+                
+                            </textarea></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit" name="submit" value="submit" onclick="getData()">Go!!</button></td>
+                            <td><button type="reset">Clear!!</button></td>
+                        </tr>
+                    </table>
+    
+                </fieldset>
+    
+            </form>
+        </div>
+        <div class="table2">
+            <fieldset style="width: 40%;">
+                <legend>Result</legend>
+                <p id="result">
+                    No Result!!
+                </p>
+            </fieldset>
+        </div>
+        
+
+        
+
+    </body>
+
+</html>

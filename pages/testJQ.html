@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            $("#a").mouseenter(function () {
+                $('#1').fadeIn(1500)
+                $('#2').fadeOut(1500)
+                $('#3').fadeOut(1500)
+            });
+
+
+            $("#b").mouseenter(function () {
+                $('#2').fadeIn(1500)
+                $('#1').fadeOut(1500)
+                $('#3').fadeOut(1500)
+            });
+
+
+            $("#c").mouseenter(function () {
+                $('#3').fadeIn(1500)
+                $('#2').fadeOut(1500)
+                $('#1').fadeOut(1500)
+
+        });
+        });
+    </script>
+    <style>
+        div {
+            border: solid black 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>hello world!!</h1>
+    <p>good bye!!</p>
+    <p id="moto" hidden>moto</p>
+    <button id="a">a</button>
+    <button id="b">b</button>
+    <button id="c">c</button>
+    <br>
+    <br>
+    <img src="../images/1.jpg" id="1" hidden>
+    <img src="../images/2.jpg" id="2" hidden>
+    <img src="../images/3.jpg" id="3" hidden>
+
+</body>
+
+</html>
